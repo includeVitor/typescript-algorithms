@@ -1,12 +1,9 @@
-export default class LinkedListNode {
-    value: any
-    next: LinkedListNode | null
-    constructor(value: any, next: LinkedListNode | null = null) {
-        this.value = value
-        this.next = next
-    }
+import { Node } from '@data-structures/linked-list/types'
 
-    toString(callback: any) {
+export class LinkedListNode {
+    constructor(public value: any, public next: Node = null) {}
+
+    toString(callback: (value: any) => string): string {
         return callback ? callback(this.value) : `${this.value}`
     }
 }
