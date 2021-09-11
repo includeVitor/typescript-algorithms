@@ -1,2 +1,2 @@
-// import {default} from './LinkedList'
+import { LinkedList } from './LinkedList'
 export { LinkedListNode } from './LinkedListNode'

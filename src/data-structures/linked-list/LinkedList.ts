@@ -1,7 +1,8 @@
-import { Node } from '@data-structures/linked-list/types'
-import { LinkedListNode } from '@data-structures/linked-list'
+import { LinkedListNode } from './LinkedListNode'
+import { ILinkedList, Node } from './types'
+import { Value } from '@comparator/types'
 
-export class LinkedList {
+export class LinkedList implements ILinkedList {
     private _head: Node
     private _tail: Node
 
@@ -10,8 +11,8 @@ export class LinkedList {
         this._tail = null
     }
 
-    prepend = (value: any): LinkedList => {
-        const newNode = new LinkedListNode(value, this._head)
+    prepend = (Value: Value): LinkedList => {
+        const newNode = new LinkedListNode(Value, this._head)
         this._head = newNode
 
         if (!this._tail) {
@@ -21,8 +22,8 @@ export class LinkedList {
         return this
     }
 
-    append = (value: any): LinkedList => {
-        const newNode = new LinkedListNode(value)
+    append = (Value: Value): LinkedList => {
+        const newNode = new LinkedListNode(Value)
 
         if (!this._head || !this._tail) {
             this._head = newNode
@@ -37,7 +38,7 @@ export class LinkedList {
         return this
     }
 
-    // delete = (value: any)  => {
+    // delete = (Value: any)  => {
     //     if (!this._head) {
     //         return null
     //     }

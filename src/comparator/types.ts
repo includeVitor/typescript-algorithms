@@ -1,11 +1,11 @@
 interface IComparator {
-    equal(a: value, b: value): boolean
-    lessThan(a: value, b: value): boolean
-    greaterThan(a: value, b: value): boolean
-    greaterThanOrEqual(a: value, b: value): boolean
+    equal(a: Value, b: Value): boolean
+    lessThan(a: Value, b: Value): boolean
+    greaterThan(a: Value, b: Value): boolean
+    greaterThanOrEqual(a: Value, b: Value): boolean
     reverse(): void
 }
 
-type value = string | number
+type Value = string | number
 
-export type { value, IComparator }
+export type { Value, IComparator }

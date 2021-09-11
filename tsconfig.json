@@ -17,7 +17,8 @@
         "noImplicitAny": true,
         "baseUrl": ".",
         "paths": {
-            "@data-structures/*": ["./src/data-structures/*"]
+            "@data-structures/*": ["./src/data-structures/*"],
+            "@comparator/*": ["./src/comparator/*"]
         }
     },
     "exclude": ["node_modules"]

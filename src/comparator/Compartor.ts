@@ -1,4 +1,4 @@
-import { IComparator, value } from './types'
+import { IComparator, Value } from './types'
 
 export class Comparator implements IComparator {
     private _compare
@@ -7,25 +7,25 @@ export class Comparator implements IComparator {
         this._compare = compareFunction || Comparator.defaultCompareFunction
     }
 
-    static defaultCompareFunction = (a: value, b: value): number => {
+    static defaultCompareFunction = (a: Value, b: Value): number => {
         if (a === b) return 0
         return a < b ? -1 : 1
     }
 
-    equal = (a: value, b: value) => this._compare(a, b) === 0
+    equal = (a: Value, b: Value) => this._compare(a, b) === 0
 
-    lessThan = (a: value, b: value) => this._compare(a, b) < 0
+    lessThan = (a: Value, b: Value) => this._compare(a, b) < 0
 
-    greaterThan = (a: value, b: value) => this._compare(a, b) > 0
+    greaterThan = (a: Value, b: Value) => this._compare(a, b) > 0
 
-    lessThanOrEqual = (a: value, b: value) =>
+    lessThanOrEqual = (a: Value, b: Value) =>
         this.lessThan(a, b) || this.equal(a, b)
 
-    greaterThanOrEqual = (a: value, b: value) =>
+    greaterThanOrEqual = (a: Value, b: Value) =>
         this.greaterThan(a, b) || this.equal(a, b)
 
     reverse = () => {
         const compareOriginal = this._compare
-        this._compare = (a: value, b: value) => compareOriginal(b, a)
+        this._compare = (a: Value, b: Value) => compareOriginal(b, a)
     }
 }
