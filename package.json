@@ -1,0 +1,9 @@
+{
+  "name": "typescript-algorithms",
+  "version": "1.0.0",
+  "description": "typescript algorithms",
+  "main": "index.js",
+  "repository": "https://github.com/includeVitor/typescript-algorithms",
+  "author": "vitorzcomputacao@gmail.com",
+  "license": "MIT"
+}
