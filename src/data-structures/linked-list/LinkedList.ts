@@ -1,14 +1,17 @@
 import { LinkedListNode } from './LinkedListNode'
 import { ILinkedList, Node } from './types'
-import { Value } from '@comparator/types'
+import { Comparator } from '@comparator/Comparator'
+import { ComparatorFunction, Value } from '@comparator/types'
 
 export class LinkedList implements ILinkedList {
     private _head: Node
     private _tail: Node
+    private _compare: Comparator
 
-    constructor() {
+    constructor(comparatorFunction: ComparatorFunction) {
         this._head = null
         this._tail = null
+        this._compare = new Comparator(comparatorFunction)
     }
 
     prepend = (Value: Value): LinkedList => {
@@ -38,13 +41,35 @@ export class LinkedList implements ILinkedList {
         return this
     }
 
-    // delete = (Value: any)  => {
-    //     if (!this._head) {
-    //         return null
-    //     }
+    delete = (value: Value): Node => {
+        if (!this._head) {
+            return null
+        }
 
-    //     let deletedNode = null
+        let deletedNode = null
 
-    //     while(this._head && this.)
-    // }
+        while (this._head && this._compare.equal(this._head.value, value)) {
+            deletedNode = this._head
+            this._head = this._head.next
+        }
+
+        let currentNode = this._head
+
+        if (currentNode !== null) {
+            while (currentNode.next) {
+                if (this._compare.equal(currentNode.next.value, value)) {
+                    deletedNode = currentNode.next
+                    currentNode.next = currentNode.next.next
+                } else {
+                    currentNode = currentNode?.next
+                }
+            }
+        }
+
+        if (this._compare.equal(this._tail?.value, value)) {
+            this._tail = currentNode
+        }
+
+        return deletedNode
+    }
 }

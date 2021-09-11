@@ -1,9 +1,9 @@
-import { IComparator, Value } from './types'
+import { IComparator, Value, ComparatorFunction } from './types'
 
 export class Comparator implements IComparator {
     private _compare
 
-    constructor(compareFunction: any) {
+    constructor(compareFunction: ComparatorFunction) {
         this._compare = compareFunction || Comparator.defaultCompareFunction
     }
 

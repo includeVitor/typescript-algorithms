@@ -8,4 +8,6 @@ interface IComparator {
 
 type Value = string | number
 
-export type { Value, IComparator }
+type ComparatorFunction = (a: Value, b: Value) => number
+
+export type { ComparatorFunction, Value, IComparator }
