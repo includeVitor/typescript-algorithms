@@ -11,4 +11,6 @@ export class Comparator implements IComparator {
         if (a === b) return 0
         return a < b ? -1 : 1
     }
+
+    equal = (a: value, b: value) => this._compare(a, b) === 0
 }
