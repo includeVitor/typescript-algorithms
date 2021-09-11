@@ -10,7 +10,7 @@ export class LinkedList {
         this._tail = null
     }
 
-    prepend(value: any): LinkedList {
+    prepend = (value: any): LinkedList => {
         const newNode = new LinkedListNode(value, this._head)
         this._head = newNode
 
@@ -21,7 +21,7 @@ export class LinkedList {
         return this
     }
 
-    append(value: any): LinkedList {
+    append = (value: any): LinkedList => {
         const newNode = new LinkedListNode(value)
 
         if (!this._head || !this._tail) {
@@ -36,4 +36,14 @@ export class LinkedList {
 
         return this
     }
+
+    // delete = (value: any)  => {
+    //     if (!this._head) {
+    //         return null
+    //     }
+
+    //     let deletedNode = null
+
+    //     while(this._head && this.)
+    // }
 }
