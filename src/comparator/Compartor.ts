@@ -17,4 +17,10 @@ export class Comparator implements IComparator {
     lessThan = (a: value, b: value) => this._compare(a, b) < 0
 
     greaterThan = (a: value, b: value) => this._compare(a, b) > 0
+
+    lessThanOrEqual = (a: value, b: value) =>
+        this.lessThan(a, b) || this.equal(a, b)
+
+    greaterThanOrEqual = (a: value, b: value) =>
+        this.greaterThan(a, b) || this.equal(a, b)
 }
