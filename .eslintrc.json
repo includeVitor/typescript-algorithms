@@ -1,0 +1,27 @@
+{
+    "plugins": ["prettier", "jest"],
+    "extends": [
+        "prettier",
+        "prettier/prettier",
+        "plugin:jest/recommended",
+        "eslint:recommended"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-console": [
+            2,
+            {
+                "allow": ["warn", "error"]
+            }
+        ]
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jest": true,
+        "node": true
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}

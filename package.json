@@ -1,9 +1,28 @@
 {
-  "name": "typescript-algorithms",
-  "version": "1.0.0",
-  "description": "typescript algorithms",
-  "main": "index.js",
-  "repository": "https://github.com/includeVitor/typescript-algorithms",
-  "author": "vitorzcomputacao@gmail.com",
-  "license": "MIT"
+    "private": false,
+    "version": "1.0.0",
+    "name": "typescript-algorithms",
+    "main": "index.js",
+    "description": "typescript algorithms",
+    "repository": "https://github.com/includeVitor/typescript-algorithms",
+    "author": "vitorzcomputacao@gmail.com",
+    "license": "MIT",
+    "dependencies": {},
+    "scripts": {
+        "type-check": "tsc --pretty --noEmit",
+        "format": "prettier --write .",
+        "lint": "eslint . --ext ts --ext tsx --ext js --ext snap",
+        "test": "jest",
+        "test-dev": "jest --coverage=false"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.0.1",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-jest": "^24.4.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "jest": "^27.1.1",
+        "prettier": "^2.4.0",
+        "typescript": "^4.4.3"
+    }
 }
