@@ -20,4 +20,20 @@ export class LinkedList {
 
         return this
     }
+
+    append(value: any): LinkedList {
+        const newNode = new LinkedListNode(value)
+
+        if (!this._head || !this._tail) {
+            this._head = newNode
+            this._tail = newNode
+
+            return this
+        }
+
+        this._tail.next = newNode
+        this._tail = newNode
+
+        return this
+    }
 }
