@@ -3,6 +3,7 @@ interface IComparator {
     lessThan(a: value, b: value): boolean
     greaterThan(a: value, b: value): boolean
     greaterThanOrEqual(a: value, b: value): boolean
+    reverse(): void
 }
 
 type value = string | number

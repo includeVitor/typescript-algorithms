@@ -23,4 +23,9 @@ export class Comparator implements IComparator {
 
     greaterThanOrEqual = (a: value, b: value) =>
         this.greaterThan(a, b) || this.equal(a, b)
+
+    reverse = () => {
+        const compareOriginal = this._compare
+        this._compare = (a: value, b: value) => compareOriginal(b, a)
+    }
 }
