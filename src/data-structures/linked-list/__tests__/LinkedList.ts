@@ -220,25 +220,6 @@ describe('LinkedList', () => {
         ).toBeNull()
     })
 
-    it('should be able to find node by callback', () => {
-        const linkedList = new LinkedList<{ value: number; key: string }>()
-
-        linkedList.append({ value: 30, key: 'key30' })
-        linkedList.append({ value: 60, key: 'key60' })
-        linkedList.append({ value: 90, key: 'key90' })
-
-        const node = linkedList.find({
-            callback: value => value.key === 'key60'
-        })
-
-        expect(node).toBeDefined()
-        expect(node?.value.value).toBe(60)
-        expect(node?.value.key).toBe('key60')
-        expect(
-            linkedList.find({ callback: value => value.key === 'key120' })
-        ).toBeNull()
-    })
-
     it('should be able to create linked list from array', () => {
         const linkedList = new LinkedList<number>()
 

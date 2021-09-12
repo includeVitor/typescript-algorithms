@@ -3,7 +3,7 @@ import { IComparator, Value, ComparatorFunction } from './types'
 export class Comparator implements IComparator {
     private _compare
 
-    constructor(compareFunction: ComparatorFunction) {
+    constructor(compareFunction: ComparatorFunction = null) {
         this._compare = compareFunction || Comparator.defaultCompareFunction
     }
 
