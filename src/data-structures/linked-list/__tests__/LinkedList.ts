@@ -25,4 +25,21 @@ describe('LinkedList', () => {
         expect(linkedList.toString()).toBe('20,50')
         expect(linkedList.tail?.next).toBeNull()
     })
+
+    it('should be able to prepend a node to a linked list', () => {
+        //Arrange
+        const linkedList = new LinkedList()
+
+        //Act, Assert
+        linkedList.prepend(2)
+        expect(linkedList.head?.toString()).toBe('2')
+        expect(linkedList.tail?.toString()).toBe('2')
+
+        //Act
+        linkedList.append(1)
+        linkedList.prepend(3)
+
+        //Assert
+        expect(linkedList.toString()).toBe('3,2,1')
+    })
 })
