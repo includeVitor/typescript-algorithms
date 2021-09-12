@@ -28,4 +28,16 @@ describe('LinkedListNode', () => {
         expect(node1.value).toBe(300)
         expect(node1.next?.value).toBe(150)
     })
+
+    it('should be able to convert a node to string', () => {
+        const node = new LinkedListNode<number>(78)
+        expect(node.toString()).toBe('78')
+
+        node.value = 45
+        expect(node.toString()).toBe('45')
+    })
+
+    // it('should be able to string with a custom stringfunction', () => {
+    //     const
+    // })
 })
