@@ -4,22 +4,22 @@ import { Comparator } from '@comparator/Comparator'
 import { ComparatorFunction, Value } from '@comparator/types'
 
 export class LinkedList implements ILinkedList {
-    private _head: Node
-    private _tail: Node
     private _compare: Comparator
 
-    constructor(comparatorFunction: ComparatorFunction = null) {
-        this._head = null
-        this._tail = null
+    constructor(
+        public head: Node = null,
+        public tail: Node = null,
+        comparatorFunction: ComparatorFunction = null
+    ) {
         this._compare = new Comparator(comparatorFunction)
     }
 
     prepend = (Value: Value) => {
-        const newNode = new LinkedListNode(Value, this._head)
-        this._head = newNode
+        const newNode = new LinkedListNode(Value, this.head)
+        this.head = newNode
 
-        if (!this._tail) {
-            this._tail = newNode
+        if (!this.tail) {
+            this.tail = newNode
         }
 
         return this
@@ -28,32 +28,32 @@ export class LinkedList implements ILinkedList {
     append = (Value: Value) => {
         const newNode = new LinkedListNode(Value)
 
-        if (!this._head || !this._tail) {
-            this._head = newNode
-            this._tail = newNode
+        if (!this.head || !this.tail) {
+            this.head = newNode
+            this.tail = newNode
 
             return this
         }
 
-        this._tail.next = newNode
-        this._tail = newNode
+        this.tail.next = newNode
+        this.tail = newNode
 
         return this
     }
 
     delete = (value: Value) => {
-        if (!this._head) {
+        if (!this.head) {
             return null
         }
 
         let deletedNode = null
 
-        while (this._head && this._compare.equal(this._head.value, value)) {
-            deletedNode = this._head
-            this._head = this._head.next
+        while (this.head && this._compare.equal(this.head.value, value)) {
+            deletedNode = this.head
+            this.head = this.head.next
         }
 
-        let currentNode = this._head
+        let currentNode = this.head
 
         if (currentNode !== null) {
             while (currentNode.next) {
@@ -66,17 +66,17 @@ export class LinkedList implements ILinkedList {
             }
         }
 
-        if (this._compare.equal(this._tail?.value, value)) {
-            this._tail = currentNode
+        if (this._compare.equal(this.tail?.value, value)) {
+            this.tail = currentNode
         }
 
         return deletedNode
     }
 
     find = (node: FindArguments) => {
-        if (!this._head) return null
+        if (!this.head) return null
 
-        let currentNode: Node = this._head
+        let currentNode: Node = this.head
 
         while (currentNode) {
             if (node.callback && node.callback(currentNode.value)) {
@@ -97,16 +97,16 @@ export class LinkedList implements ILinkedList {
     }
 
     deleteTail = () => {
-        const deletedTail = this._tail
+        const deletedTail = this.tail
 
-        if (this._head === this._tail) {
-            this._head = null
-            this._tail = null
+        if (this.head === this.tail) {
+            this.head = null
+            this.tail = null
 
             return deletedTail
         }
 
-        let currentNode = this._head
+        let currentNode = this.head
 
         while (currentNode?.next) {
             if (!currentNode.next.next) {
@@ -116,21 +116,21 @@ export class LinkedList implements ILinkedList {
             }
         }
 
-        this._tail = currentNode
+        this.tail = currentNode
 
         return deletedTail
     }
 
     deleteHead = () => {
-        if (!this._head) return null
+        if (!this.head) return null
 
-        const deletedHead = this._head
+        const deletedHead = this.head
 
-        if (this._head.next) {
-            this._head = this._head.next
+        if (this.head.next) {
+            this.head = this.head.next
         } else {
-            this._head = null
-            this._tail = null
+            this.head = null
+            this.tail = null
         }
 
         return deletedHead
@@ -144,7 +144,7 @@ export class LinkedList implements ILinkedList {
     toArray = () => {
         const nodes = []
 
-        let currentNode = this._head
+        let currentNode = this.head
 
         while (currentNode) {
             nodes.push(currentNode)
@@ -160,7 +160,7 @@ export class LinkedList implements ILinkedList {
             .toString()
 
     reverse = () => {
-        let currNode = this._head
+        let currNode = this.head
         let prevNode = null
         let nextNode = null
 
@@ -173,8 +173,8 @@ export class LinkedList implements ILinkedList {
             currNode = nextNode
         }
 
-        this._tail = this._head
-        this._head = prevNode
+        this.tail = this.head
+        this.head = prevNode
 
         return this
     }
