@@ -11,6 +11,7 @@ interface ILinkedList {
     deleteHead(): Node
     fromArray(arr: Value[]): LinkedList
     toArray(): LinkedListNode[]
+    toString(callback: (str: string) => string): string[]
 }
 
 type FindArguments = {

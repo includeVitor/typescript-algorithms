@@ -153,4 +153,7 @@ export class LinkedList implements ILinkedList {
 
         return nodes
     }
+
+    toString = (callback: (str: string) => string) =>
+        this.toArray().map(node => node.toString(callback).toString())
 }
