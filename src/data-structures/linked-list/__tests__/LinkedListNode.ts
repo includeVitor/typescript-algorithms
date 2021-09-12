@@ -37,7 +37,13 @@ describe('LinkedListNode', () => {
         expect(node.toString()).toBe('45')
     })
 
-    // it('should be able to string with a custom stringfunction', () => {
-    //     const
-    // })
+    it('should be able to string with a custom stringfunction', () => {
+        const nodeValue = { value: 35, key: 'key35' }
+        const node = new LinkedListNode(nodeValue)
+
+        const toStringCallback = (value: { value: number; key: string }) =>
+            `value: ${value.value}, key: ${value.key}`
+
+        expect(node.toString(toStringCallback)).toBe('value: 35, key: key35')
+    })
 })
