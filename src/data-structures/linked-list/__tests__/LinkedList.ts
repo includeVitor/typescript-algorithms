@@ -207,8 +207,15 @@ describe('LinkedList', () => {
         linkedList.append({ value: 60, key: 'key60' })
         linkedList.append({ value: 90, key: 'key90' })
 
-        // const node = linkedList.find({
-        //     callback: value => value.key === 'key60'
-        // })
+        const node = linkedList.find({
+            callback: value => value.key === 'key60'
+        })
+
+        expect(node).toBeDefined()
+        expect(node?.value.value).toBe(60)
+        expect(node?.value.key).toBe('key60')
+        expect(
+            linkedList.find({ callback: value => value.key === 'key120' })
+        ).toBeNull()
     })
 })

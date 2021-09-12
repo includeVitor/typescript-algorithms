@@ -15,7 +15,7 @@ interface ILinkedList {
 }
 
 type FindArguments = {
-    value: any
+    value?: any
     callback?: (value: any) => boolean
 }
 
