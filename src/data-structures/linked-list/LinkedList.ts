@@ -156,4 +156,24 @@ export class LinkedList implements ILinkedList {
 
     toString = (callback: (str: string) => string) =>
         this.toArray().map(node => node.toString(callback).toString())
+
+    reverse = () => {
+        let currNode = this._head
+        let prevNode = null
+        let nextNode = null
+
+        while (currNode) {
+            nextNode = currNode.next
+
+            currNode.next = prevNode
+
+            prevNode = currNode
+            currNode = nextNode
+        }
+
+        this._tail = this._head
+        this._head = prevNode
+
+        return this
+    }
 }

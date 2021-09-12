@@ -12,6 +12,7 @@ interface ILinkedList {
     fromArray(arr: Value[]): LinkedList
     toArray(): LinkedListNode[]
     toString(callback: (str: string) => string): string[]
+    reverse(): LinkedList
 }
 
 type FindArguments = {
