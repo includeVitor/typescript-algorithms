@@ -218,4 +218,31 @@ describe('LinkedList', () => {
             linkedList.find({ callback: value => value.key === 'key120' })
         ).toBeNull()
     })
+
+    it('should be able to find node by callback', () => {
+        const linkedList = new LinkedList()
+
+        linkedList.append({ value: 30, key: 'key30' })
+        linkedList.append({ value: 60, key: 'key60' })
+        linkedList.append({ value: 90, key: 'key90' })
+
+        const node = linkedList.find({
+            callback: value => value.key === 'key60'
+        })
+
+        expect(node).toBeDefined()
+        expect(node?.value.value).toBe(60)
+        expect(node?.value.key).toBe('key60')
+        expect(
+            linkedList.find({ callback: value => value.key === 'key120' })
+        ).toBeNull()
+    })
+
+    it('should be able to create linked list from array', () => {
+        const linkedList = new LinkedList()
+
+        linkedList.fromArray([8, 16, 24, 32, 40])
+
+        expect(linkedList.toString()).toBe('8,16,24,32,40')
+    })
 })
