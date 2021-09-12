@@ -274,4 +274,18 @@ describe('LinkedList', () => {
             })
         ).toBeNull()
     })
+
+    it('should find be able to use callback over compare function', () => {
+        const greaterThan = (value: any, compareTo: any) =>
+            value > compareTo ? 0 : 1
+
+        const linkedList = new LinkedList(null, null, greaterThan)
+        linkedList.fromArray([9, 18, 27, 36, 45])
+
+        let node = linkedList.find({ value: 27 })
+        expect(node?.value).toBe(36)
+
+        node = linkedList.find({ callback: value => value < 27 })
+        expect(node?.value).toBe(9)
+    })
 })
