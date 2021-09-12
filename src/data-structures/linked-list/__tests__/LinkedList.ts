@@ -288,4 +288,34 @@ describe('LinkedList', () => {
         node = linkedList.find({ callback: value => value < 27 })
         expect(node?.value).toBe(9)
     })
+
+    it('should be able to convert to array', () => {
+        const linkedList = new LinkedList()
+        linkedList.append(7)
+        linkedList.append(14)
+        linkedList.append(21)
+        expect(linkedList.toArray().join(',')).toBe('7,14,21')
+    })
+
+    it('should be able to reverse a linked list', () => {
+        const linkedList = new LinkedList()
+
+        linkedList.append(4).append(8).append(12)
+
+        expect(linkedList.toString()).toBe('4,8,12')
+        expect(linkedList.head?.value).toBe(4)
+        expect(linkedList.tail?.value).toBe(12)
+
+        //Reverse
+        linkedList.reverse()
+        expect(linkedList.toString()).toBe('12,8,4')
+        expect(linkedList.head?.value).toBe(12)
+        expect(linkedList.tail?.value).toBe(4)
+
+        //Reverse back
+        linkedList.reverse()
+        expect(linkedList.toString()).toBe('4,8,12')
+        expect(linkedList.head?.value).toBe(1)
+        expect(linkedList.tail?.value).toBe(3)
+    })
 })
