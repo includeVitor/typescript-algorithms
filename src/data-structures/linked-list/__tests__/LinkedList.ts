@@ -194,5 +194,9 @@ describe('LinkedList', () => {
         expect(linkedList.find({ value: 400 })).toBeDefined()
 
         linkedList.append(500).append(600)
+
+        const node = linkedList.find({ value: 500 })
+        expect(node?.value).toBe(500)
+        expect(linkedList.find({ value: 800 })).toBeNull()
     })
 })
