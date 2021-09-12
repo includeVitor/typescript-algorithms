@@ -11,7 +11,7 @@ interface ILinkedList {
     deleteHead(): Node
     fromArray(arr: Value[]): LinkedList
     toArray(): LinkedListNode[]
-    toString(callback: (str: string) => string): string[]
+    toString(callback: ToStringArguments): string
     reverse(): LinkedList
 }
 
@@ -20,6 +20,8 @@ type FindArguments = {
     callback: ((value: Value) => boolean) | undefined
 }
 
+type ToStringArguments = ((str: string) => string) | null
+
 type Node = LinkedListNode | null
 
-export type { ILinkedList, Node, FindArguments }
+export type { ILinkedList, Node, FindArguments, ToStringArguments }

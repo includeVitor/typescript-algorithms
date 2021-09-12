@@ -1,7 +1,8 @@
-import { a } from '@data-structures/linked-list/LinkedList'
+import { LinkedList } from '@data-structures/linked-list/LinkedList'
 
 describe('LinkedList', () => {
-    it('should be ok', () => {
-        expect(a).toBe('abc')
+    it('should create empty linked list', () => {
+        const linkedList = new LinkedList()
+        expect(linkedList.toString()).toBe('')
     })
 })

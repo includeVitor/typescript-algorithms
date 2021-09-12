@@ -1,5 +1,5 @@
 import { LinkedListNode } from './LinkedListNode'
-import { FindArguments, ILinkedList, Node } from './types'
+import { FindArguments, ILinkedList, Node, ToStringArguments } from './types'
 import { Comparator } from '@comparator/Comparator'
 import { ComparatorFunction, Value } from '@comparator/types'
 
@@ -8,7 +8,7 @@ export class LinkedList implements ILinkedList {
     private _tail: Node
     private _compare: Comparator
 
-    constructor(comparatorFunction: ComparatorFunction) {
+    constructor(comparatorFunction: ComparatorFunction = null) {
         this._head = null
         this._tail = null
         this._compare = new Comparator(comparatorFunction)
@@ -154,8 +154,10 @@ export class LinkedList implements ILinkedList {
         return nodes
     }
 
-    toString = (callback: (str: string) => string) =>
-        this.toArray().map(node => node.toString(callback).toString())
+    toString = (callback: ToStringArguments = null) =>
+        this.toArray()
+            .map(node => node.toString(callback))
+            .toString()
 
     reverse = () => {
         let currNode = this._head
