@@ -185,7 +185,7 @@ describe('LinkedList', () => {
         expect(linkedList.toString(nodeStr)).toBe('key200:200,key100:100')
     })
 
-    it('should find node by value', () => {
+    it('should be able to find node by value', () => {
         const linkedList = new LinkedList()
 
         expect(linkedList.find({ value: 300 })).toBeNull()
@@ -198,5 +198,17 @@ describe('LinkedList', () => {
         const node = linkedList.find({ value: 500 })
         expect(node?.value).toBe(500)
         expect(linkedList.find({ value: 800 })).toBeNull()
+    })
+
+    it('should be able to find node by callback', () => {
+        const linkedList = new LinkedList()
+
+        linkedList.append({ value: 30, key: 'key30' })
+        linkedList.append({ value: 60, key: 'key60' })
+        linkedList.append({ value: 90, key: 'key90' })
+
+        // const node = linkedList.find({
+        //     callback: value => value.key === 'key60'
+        // })
     })
 })
