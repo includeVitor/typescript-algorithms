@@ -1,5 +1,5 @@
 import { LinkedListNode } from './LinkedListNode'
-import { ILinkedList, Node } from './types'
+import { FindArguments, ILinkedList, Node } from './types'
 import { Comparator } from '@comparator/Comparator'
 import { ComparatorFunction, Value } from '@comparator/types'
 
@@ -71,5 +71,28 @@ export class LinkedList implements ILinkedList {
         }
 
         return deletedNode
+    }
+
+    find = (node: FindArguments) => {
+        if (!this._head) return null
+
+        let currentNode: Node = this._head
+
+        while (currentNode) {
+            if (node.callback && node.callback(currentNode.value)) {
+                return currentNode
+            }
+
+            if (
+                node.value !== undefined &&
+                this._compare.equal(currentNode.value, node.value)
+            ) {
+                return currentNode
+            }
+
+            currentNode = currentNode.next
+        }
+
+        return null
     }
 }
