@@ -10,6 +10,7 @@ interface ILinkedList {
     deleteTail(): Node
     deleteHead(): Node
     fromArray(arr: Value[]): LinkedList
+    toArray(): LinkedListNode[]
 }
 
 type FindArguments = {

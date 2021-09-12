@@ -140,4 +140,17 @@ export class LinkedList implements ILinkedList {
         arr.forEach(value => this.append(value))
         return this
     }
+
+    toArray = () => {
+        const nodes = []
+
+        let currentNode = this._head
+
+        while (currentNode) {
+            nodes.push(currentNode)
+            currentNode = currentNode.next
+        }
+
+        return nodes
+    }
 }
