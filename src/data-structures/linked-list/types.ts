@@ -8,6 +8,7 @@ interface ILinkedList {
     delete(value: Value): Node
     find(node: FindArguments): Node
     deleteTail(): Node
+    deleteHead(): Node
 }
 
 type FindArguments = {

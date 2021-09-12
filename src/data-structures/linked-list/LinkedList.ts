@@ -120,4 +120,19 @@ export class LinkedList implements ILinkedList {
 
         return deletedTail
     }
+
+    deleteHead = () => {
+        if (!this._head) return null
+
+        const deletedHead = this._head
+
+        if (this._head.next) {
+            this._head = this._head.next
+        } else {
+            this._head = null
+            this._tail = null
+        }
+
+        return deletedHead
+    }
 }
