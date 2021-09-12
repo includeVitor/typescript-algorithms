@@ -7,6 +7,17 @@ describe('LinkedListNode', () => {
         expect(node.value).toBe(150)
         expect(node.next).toBeNull()
     })
+    it('should be able to create an node with object', () => {
+        const nodeValue = { value: 500, key: 'key500' }
+
+        const node = new LinkedListNode<{ value: number; key: string }>(
+            nodeValue
+        )
+
+        expect(node.value.value).toBe(500)
+        expect(node.value.key).toBe('key500')
+        expect(node.next).toBeNull()
+    })
 
     it('should be able to link nodes together', () => {
         const node2 = new LinkedListNode<number>(150)
