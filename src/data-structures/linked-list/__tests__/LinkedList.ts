@@ -245,4 +245,33 @@ describe('LinkedList', () => {
 
         expect(linkedList.toString()).toBe('8,16,24,32,40')
     })
+
+    it('should be able to find a node with custom compare function', () => {
+        const comparatorFunction = (a: any, b: any): number => {
+            if (a.customValue === b.customValue) {
+                return 0
+            }
+            return a.customValue === b.customValue ? -1 : 1
+        }
+
+        const linkedList = new LinkedList(null, null, comparatorFunction)
+
+        linkedList
+            .append({ value: 400, customValue: 'custom400' })
+            .append({ value: 500, customValue: 'custom500' })
+            .append({ value: 600, customValue: 'custom600' })
+
+        const node = linkedList.find({
+            value: { value: 500, customValue: 'custom500' }
+        })
+
+        expect(node).toBeDefined()
+        expect(node?.value.value).toBe(500)
+        expect(node?.value.customValue).toBe('custom500')
+        expect(
+            linkedList.find({
+                value: { value: 500, customValue: 'custom1000' }
+            })
+        ).toBeNull()
+    })
 })
