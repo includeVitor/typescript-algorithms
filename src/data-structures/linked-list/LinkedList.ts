@@ -14,7 +14,7 @@ export class LinkedList implements ILinkedList {
         this._compare = new Comparator(comparatorFunction)
     }
 
-    prepend = (Value: Value): LinkedList => {
+    prepend = (Value: Value) => {
         const newNode = new LinkedListNode(Value, this._head)
         this._head = newNode
 
@@ -25,7 +25,7 @@ export class LinkedList implements ILinkedList {
         return this
     }
 
-    append = (Value: Value): LinkedList => {
+    append = (Value: Value) => {
         const newNode = new LinkedListNode(Value)
 
         if (!this._head || !this._tail) {
@@ -41,7 +41,7 @@ export class LinkedList implements ILinkedList {
         return this
     }
 
-    delete = (value: Value): Node => {
+    delete = (value: Value) => {
         if (!this._head) {
             return null
         }
@@ -94,5 +94,30 @@ export class LinkedList implements ILinkedList {
         }
 
         return null
+    }
+
+    deleteTail = () => {
+        const deletedTail = this._tail
+
+        if (this._head === this._tail) {
+            this._head = null
+            this._tail = null
+
+            return deletedTail
+        }
+
+        let currentNode = this._head
+
+        while (currentNode?.next) {
+            if (!currentNode.next.next) {
+                currentNode.next = null
+            } else {
+                currentNode = currentNode.next
+            }
+        }
+
+        this._tail = currentNode
+
+        return deletedTail
     }
 }
