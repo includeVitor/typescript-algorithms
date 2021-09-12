@@ -135,4 +135,9 @@ export class LinkedList implements ILinkedList {
 
         return deletedHead
     }
+
+    fromArray = (arr: Value[]) => {
+        arr.forEach(value => this.append(value))
+        return this
+    }
 }
