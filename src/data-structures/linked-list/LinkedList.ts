@@ -7,8 +7,8 @@ export class LinkedList<T = never> implements ILinkedList<T> {
     private _compare: Comparator
 
     constructor(
-        public head: Node = null,
-        public tail: Node = null,
+        public head: Node<T> = null,
+        public tail: Node<T> = null,
         comparatorFunction: ComparatorFunction = null
     ) {
         this._compare = new Comparator(comparatorFunction)
@@ -76,7 +76,7 @@ export class LinkedList<T = never> implements ILinkedList<T> {
     find = (node: FindArguments<T>) => {
         if (!this.head) return null
 
-        let currentNode: Node = this.head
+        let currentNode: Node<T> = this.head
 
         while (currentNode) {
             if (node.callback && node.callback(currentNode.value)) {
