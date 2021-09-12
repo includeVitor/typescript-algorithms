@@ -1,25 +1,25 @@
 import { LinkedList } from './LinkedList'
 import { LinkedListNode } from './LinkedListNode'
 
-interface ILinkedList {
-    prepend(value: any): LinkedList
-    append(value: any): LinkedList
-    delete(value: any): Node
-    find(node: FindArguments): Node
+interface ILinkedList<T> {
+    prepend(value: T): LinkedList<T>
+    append(value: T): LinkedList<T>
+    delete(value: T): Node
+    find(node: FindArguments<T>): Node
     deleteTail(): Node
     deleteHead(): Node
-    fromArray(arr: any[]): LinkedList
+    fromArray(arr: T[]): LinkedList<T>
     toArray(): LinkedListNode[]
     toString(callback: ToStringArguments): string
-    reverse(): LinkedList
+    reverse(): LinkedList<T>
 }
 
-type FindArguments = {
-    value?: any
+type FindArguments<T> = {
+    value?: T
     callback?: (value: any) => boolean
 }
 
-type ToStringArguments = ((str: string) => string) | null
+type ToStringArguments = ((str: any) => string) | null
 
 type Node = LinkedListNode | null
 

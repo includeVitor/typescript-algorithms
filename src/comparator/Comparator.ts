@@ -12,20 +12,20 @@ export class Comparator implements IComparator {
         return a < b ? -1 : 1
     }
 
-    equal = (a: Value, b: Value) => this._compare(a, b) === 0
+    equal = (a: any, b: any) => this._compare(a, b) === 0
 
-    lessThan = (a: Value, b: Value) => this._compare(a, b) < 0
+    lessThan = (a: any, b: any) => this._compare(a, b) < 0
 
-    greaterThan = (a: Value, b: Value) => this._compare(a, b) > 0
+    greaterThan = (a: any, b: any) => this._compare(a, b) > 0
 
-    lessThanOrEqual = (a: Value, b: Value) =>
+    lessThanOrEqual = (a: any, b: any) =>
         this.lessThan(a, b) || this.equal(a, b)
 
-    greaterThanOrEqual = (a: Value, b: Value) =>
+    greaterThanOrEqual = (a: any, b: any) =>
         this.greaterThan(a, b) || this.equal(a, b)
 
     reverse = () => {
         const compareOriginal = this._compare
-        this._compare = (a: Value, b: Value) => compareOriginal(b, a)
+        this._compare = (a: any, b: any) => compareOriginal(b, a)
     }
 }

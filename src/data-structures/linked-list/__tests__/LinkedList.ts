@@ -11,7 +11,7 @@ describe('LinkedList', () => {
 
     it('should be able to append a node to a linked list', () => {
         //Arrange
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<number>()
 
         //Act, Assert
         expect(linkedList.head).toBeNull()
@@ -28,7 +28,7 @@ describe('LinkedList', () => {
 
     it('should be able to prepend a node to a linked list', () => {
         //Arrange
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<number>()
 
         //Act, Assert
         linkedList.prepend(2)
@@ -45,7 +45,7 @@ describe('LinkedList', () => {
 
     it('should be able to delete an node by value', () => {
         //Arrange
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<number>()
 
         //Act,Assert
         expect(linkedList.delete(26)).toBeNull()
@@ -93,7 +93,7 @@ describe('LinkedList', () => {
 
     it('should be able to delete linked list tail', () => {
         //Arrange
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<number>()
 
         //Act
         linkedList.append(75)
@@ -140,7 +140,7 @@ describe('LinkedList', () => {
 
     it('should be able to delete linked list head', () => {
         //Arrange
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<number>()
 
         //Act,Assert
         expect(linkedList.deleteHead()).toBeNull()
@@ -173,20 +173,21 @@ describe('LinkedList', () => {
     })
 
     it('should be able to append objects', () => {
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<{ value: number; key: string }>()
 
         const nodeValue1 = { value: 100, key: 'key100' }
         const nodeValue2 = { value: 200, key: 'key200' }
 
         linkedList.append(nodeValue1).prepend(nodeValue2)
 
-        const nodeStr = (value: any) => `${value.key}:${value.value}`
+        const nodeStr = (value: { value: number; key: string }) =>
+            `${value.key}:${value.value}`
 
         expect(linkedList.toString(nodeStr)).toBe('key200:200,key100:100')
     })
 
     it('should be able to find node by value', () => {
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<number>()
 
         expect(linkedList.find({ value: 300 })).toBeNull()
 
@@ -201,7 +202,7 @@ describe('LinkedList', () => {
     })
 
     it('should be able to find node by callback', () => {
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<{ value: number; key: string }>()
 
         linkedList.append({ value: 30, key: 'key30' })
         linkedList.append({ value: 60, key: 'key60' })
@@ -220,7 +221,7 @@ describe('LinkedList', () => {
     })
 
     it('should be able to find node by callback', () => {
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<{ value: number; key: string }>()
 
         linkedList.append({ value: 30, key: 'key30' })
         linkedList.append({ value: 60, key: 'key60' })
@@ -239,7 +240,7 @@ describe('LinkedList', () => {
     })
 
     it('should be able to create linked list from array', () => {
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<number>()
 
         linkedList.fromArray([8, 16, 24, 32, 40])
 
@@ -254,7 +255,10 @@ describe('LinkedList', () => {
             return a.customValue === b.customValue ? -1 : 1
         }
 
-        const linkedList = new LinkedList(null, null, comparatorFunction)
+        const linkedList = new LinkedList<{
+            value: number
+            customValue: string
+        }>(null, null, comparatorFunction)
 
         linkedList
             .append({ value: 400, customValue: 'custom400' })
@@ -279,7 +283,7 @@ describe('LinkedList', () => {
         const greaterThan = (value: any, compareTo: any) =>
             value > compareTo ? 0 : 1
 
-        const linkedList = new LinkedList(null, null, greaterThan)
+        const linkedList = new LinkedList<number>(null, null, greaterThan)
         linkedList.fromArray([9, 18, 27, 36, 45])
 
         let node = linkedList.find({ value: 27 })
@@ -290,7 +294,7 @@ describe('LinkedList', () => {
     })
 
     it('should be able to convert to array', () => {
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<number>()
         linkedList.append(7)
         linkedList.append(14)
         linkedList.append(21)
@@ -298,7 +302,7 @@ describe('LinkedList', () => {
     })
 
     it('should be able to reverse a linked list', () => {
-        const linkedList = new LinkedList()
+        const linkedList = new LinkedList<number>()
 
         linkedList.append(4).append(8).append(12)
 

@@ -1,9 +1,9 @@
 import { LinkedListNode } from './LinkedListNode'
 import { FindArguments, ILinkedList, Node, ToStringArguments } from './types'
 import { Comparator } from '@comparator/Comparator'
-import { ComparatorFunction, Value } from '@comparator/types'
+import { ComparatorFunction } from '@comparator/types'
 
-export class LinkedList implements ILinkedList {
+export class LinkedList<T = never> implements ILinkedList<T> {
     private _compare: Comparator
 
     constructor(
@@ -14,7 +14,7 @@ export class LinkedList implements ILinkedList {
         this._compare = new Comparator(comparatorFunction)
     }
 
-    prepend = (Value: any) => {
+    prepend = (Value: T) => {
         const newNode = new LinkedListNode(Value, this.head)
         this.head = newNode
 
@@ -25,8 +25,8 @@ export class LinkedList implements ILinkedList {
         return this
     }
 
-    append = (Value: any) => {
-        const newNode = new LinkedListNode(Value)
+    append = (value: T) => {
+        const newNode = new LinkedListNode(value)
 
         if (!this.head || !this.tail) {
             this.head = newNode
@@ -41,7 +41,7 @@ export class LinkedList implements ILinkedList {
         return this
     }
 
-    delete = (value: any) => {
+    delete = (value: T) => {
         if (!this.head) {
             return null
         }
@@ -73,7 +73,7 @@ export class LinkedList implements ILinkedList {
         return deletedNode
     }
 
-    find = (node: FindArguments) => {
+    find = (node: FindArguments<T>) => {
         if (!this.head) return null
 
         let currentNode: Node = this.head
@@ -136,7 +136,7 @@ export class LinkedList implements ILinkedList {
         return deletedHead
     }
 
-    fromArray = (arr: any[]) => {
+    fromArray = (arr: T[]) => {
         arr.forEach(value => this.append(value))
         return this
     }
