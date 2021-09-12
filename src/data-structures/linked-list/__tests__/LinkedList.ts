@@ -315,7 +315,7 @@ describe('LinkedList', () => {
         //Reverse back
         linkedList.reverse()
         expect(linkedList.toString()).toBe('4,8,12')
-        expect(linkedList.head?.value).toBe(1)
-        expect(linkedList.tail?.value).toBe(3)
+        expect(linkedList.head?.value).toBe(4)
+        expect(linkedList.tail?.value).toBe(12)
     })
 })
