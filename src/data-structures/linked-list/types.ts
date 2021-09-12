@@ -1,23 +1,22 @@
-import { Value } from '@comparator/types'
 import { LinkedList } from './LinkedList'
 import { LinkedListNode } from './LinkedListNode'
 
 interface ILinkedList {
-    prepend(value: Value): LinkedList
-    append(value: Value): LinkedList
-    delete(value: Value): Node
+    prepend(value: any): LinkedList
+    append(value: any): LinkedList
+    delete(value: any): Node
     find(node: FindArguments): Node
     deleteTail(): Node
     deleteHead(): Node
-    fromArray(arr: Value[]): LinkedList
+    fromArray(arr: any[]): LinkedList
     toArray(): LinkedListNode[]
     toString(callback: ToStringArguments): string
     reverse(): LinkedList
 }
 
 type FindArguments = {
-    value: Value | undefined
-    callback: ((value: Value) => boolean) | undefined
+    value: any
+    callback?: (value: any) => boolean
 }
 
 type ToStringArguments = ((str: string) => string) | null
