@@ -16,5 +16,8 @@ describe('Comparator', () => {
         expect(comparator.lessThanOrEqual(125, 100)).toBe(false)
         expect(comparator.lessThanOrEqual(35, 35)).toBe(true)
         expect(comparator.lessThanOrEqual(-125, -125)).toBe(true)
+
+        expect(comparator.greaterThan(25, 25)).toBe(false)
+        expect(comparator.greaterThan(0, -25)).toBe(true)
     })
 })
