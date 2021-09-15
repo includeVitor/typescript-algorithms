@@ -39,5 +39,12 @@ describe('Comparator', () => {
         expect(CustomComparator.greaterThanOrEqual('k', 'k')).toBe(true)
 
         CustomComparator.reverse()
+
+        expect(CustomComparator.equal('v', 'b')).toBe(true)
+        expect(CustomComparator.equal('q', '')).toBe(false)
+        expect(CustomComparator.lessThan('b', 'xy')).toBe(false)
+        expect(CustomComparator.greaterThanOrEqual('y', 'xz')).toBe(true)
+        expect(CustomComparator.greaterThanOrEqual('xz', 'q')).toBe(false)
+        expect(CustomComparator.greaterThanOrEqual('l', 'w')).toBe(true)
     })
 })
