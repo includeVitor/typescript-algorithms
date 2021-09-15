@@ -14,10 +14,16 @@ export class LinkedList<T = never> implements ILinkedList<T> {
         this._compare = new Comparator(comparatorFunction)
     }
 
-    prepend = (Value: T) => {
-        const newNode = new LinkedListNode(Value, this.head)
+    prepend = (value: T) => {
+        /**
+         * Make new node to be a head
+         */
+        const newNode = new LinkedListNode(value, this.head)
         this.head = newNode
 
+        /**
+         * Create a new tail if doesn't exists yet
+         */
         if (!this.tail) {
             this.tail = newNode
         }
@@ -28,6 +34,9 @@ export class LinkedList<T = never> implements ILinkedList<T> {
     append = (value: T) => {
         const newNode = new LinkedListNode(value)
 
+        /**
+         * Create new head and tail if doesn't exists yet
+         */
         if (!this.head || !this.tail) {
             this.head = newNode
             this.tail = newNode
@@ -35,6 +44,9 @@ export class LinkedList<T = never> implements ILinkedList<T> {
             return this
         }
 
+        /**
+         * Append the new node at the end of linked list
+         */
         this.tail.next = newNode
         this.tail = newNode
 
@@ -42,12 +54,18 @@ export class LinkedList<T = never> implements ILinkedList<T> {
     }
 
     delete = (value: T) => {
+        /**
+         * Returns null if the list don't have head
+         */
         if (!this.head) {
             return null
         }
 
         let deletedNode = null
 
+        /**
+         * If the head must be deleted, make the next node to be the head
+         */
         while (this.head && this._compare.equal(this.head.value, value)) {
             deletedNode = this.head
             this.head = this.head.next
@@ -55,6 +73,9 @@ export class LinkedList<T = never> implements ILinkedList<T> {
 
         let currentNode = this.head
 
+        /**
+         * If the next node must be deleted make next node to be next next node
+         */
         if (currentNode !== null) {
             while (currentNode.next) {
                 if (this._compare.equal(currentNode.next.value, value)) {
@@ -66,6 +87,9 @@ export class LinkedList<T = never> implements ILinkedList<T> {
             }
         }
 
+        /**
+         * If the tail must be deleted, make the tail be the head as well
+         * */
         if (this._compare.equal(this.tail?.value, value)) {
             this.tail = currentNode
         }
@@ -79,10 +103,16 @@ export class LinkedList<T = never> implements ILinkedList<T> {
         let currentNode: Node<T> = this.head
 
         while (currentNode) {
+            /**
+             * If recives an callback try to find node by callback
+             */
             if (node.callback && node.callback(currentNode.value)) {
                 return currentNode
             }
 
+            /**
+             * If recives an value try to find node by value
+             */
             if (
                 node.value !== undefined &&
                 this._compare.equal(currentNode.value, node.value)
@@ -99,6 +129,9 @@ export class LinkedList<T = never> implements ILinkedList<T> {
     deleteTail = () => {
         const deletedTail = this.tail
 
+        /**
+         * If there is only one node, make the tail and the head to be null
+         */
         if (this.head === this.tail) {
             this.head = null
             this.tail = null
@@ -107,7 +140,10 @@ export class LinkedList<T = never> implements ILinkedList<T> {
         }
 
         let currentNode = this.head
-
+        /**
+         * If there's more than one node...
+         * Grab the last node before the head and link to null
+         */
         while (currentNode?.next) {
             if (!currentNode.next.next) {
                 currentNode.next = null
