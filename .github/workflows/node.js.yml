@@ -28,16 +28,16 @@ jobs:
         cache: 'npm'
         
     - name: run CI    
-    - run: npm ci
+      run: npm ci
     
     - name: run type-checking
-    - run: npm type-check
+      run: npm type-check
     
     - name: run linting
-    - run: npm lint
+      run: npm lint
     
     - name: run tests
-    - run: npm test
+      run: npm test
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
