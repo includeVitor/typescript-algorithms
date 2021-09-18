@@ -1,95 +1,95 @@
 import { LinkedList } from '@data-structures/linked-list/LinkedList'
 
 describe('LinkedList', () => {
-    // it('should be able to create an empty linked list', () => {
-    //     //Arrange
-    //     const linkedList = new LinkedList()
+    it('should be able to create an empty linked list', () => {
+        //Arrange
+        const linkedList = new LinkedList()
 
-    //     //Act, Assert
-    //     expect(linkedList.toString()).toBe('')
-    // })
+        //Act, Assert
+        expect(linkedList.toString()).toBe('')
+    })
 
-    // it('should be able to append a node to a linked list', () => {
-    //     //Arrange
-    //     const linkedList = new LinkedList<number>()
+    it('should be able to append a node to a linked list', () => {
+        //Arrange
+        const linkedList = new LinkedList<number>()
 
-    //     //Act, Assert
-    //     expect(linkedList.head).toBeNull()
-    //     expect(linkedList.tail).toBeNull()
+        //Act, Assert
+        expect(linkedList.head).toBeNull()
+        expect(linkedList.tail).toBeNull()
 
-    //     //Act
-    //     linkedList.append(20)
-    //     linkedList.append(50)
+        //Act
+        linkedList.append(20)
+        linkedList.append(50)
 
-    //     //Assert
-    //     expect(linkedList.toString()).toBe('20,50')
-    //     expect(linkedList.tail?.next).toBeNull()
-    // })
+        //Assert
+        expect(linkedList.toString()).toBe('20,50')
+        expect(linkedList.tail?.next).toBeNull()
+    })
 
-    // it('should be able to prepend a node to a linked list', () => {
-    //     //Arrange
-    //     const linkedList = new LinkedList<number>()
+    it('should be able to prepend a node to a linked list', () => {
+        //Arrange
+        const linkedList = new LinkedList<number>()
 
-    //     //Act, Assert
-    //     linkedList.prepend(2)
-    //     expect(linkedList.head?.toString()).toBe('2')
-    //     expect(linkedList.tail?.toString()).toBe('2')
+        //Act, Assert
+        linkedList.prepend(2)
+        expect(linkedList.head?.toString()).toBe('2')
+        expect(linkedList.tail?.toString()).toBe('2')
 
-    //     //Act
-    //     linkedList.append(1)
-    //     linkedList.prepend(3)
+        //Act
+        linkedList.append(1)
+        linkedList.prepend(3)
 
-    //     //Assert
-    //     expect(linkedList.toString()).toBe('3,2,1')
-    // })
+        //Assert
+        expect(linkedList.toString()).toBe('3,2,1')
+    })
 
-    // it('should be able to delete an node by value', () => {
-    //     //Arrange
-    //     const linkedList = new LinkedList<number>()
+    it('should be able to delete an node by value', () => {
+        //Arrange
+        const linkedList = new LinkedList<number>()
 
-    //     //Act,Assert
-    //     expect(linkedList.delete(26)).toBeNull()
+        //Act,Assert
+        expect(linkedList.delete(26)).toBeNull()
 
-    //     //Act
-    //     linkedList.append(25)
-    //     linkedList.append(50)
-    //     linkedList.append(75)
-    //     linkedList.append(100)
-    //     linkedList.append(125)
+        //Act
+        linkedList.append(25)
+        linkedList.append(50)
+        linkedList.append(75)
+        linkedList.append(100)
+        linkedList.append(125)
 
-    //     //Act,Assert
-    //     expect(linkedList.head?.toString()).toBe('25')
-    //     expect(linkedList.tail?.toString()).toBe('125')
+        //Act,Assert
+        expect(linkedList.head?.toString()).toBe('25')
+        expect(linkedList.tail?.toString()).toBe('125')
 
-    //     //Act,Assert
-    //     const deletedNode = linkedList.delete(100)
-    //     expect(deletedNode?.value).toBe(100)
-    //     expect(linkedList.toString()).toBe('25,50,75,125')
+        //Act,Assert
+        const deletedNode = linkedList.delete(100)
+        expect(deletedNode?.value).toBe(100)
+        expect(linkedList.toString()).toBe('25,50,75,125')
 
-    //     //Act,Assert
-    //     linkedList.delete(25)
-    //     expect(linkedList.toString()).toBe('50,75,125')
+        //Act,Assert
+        linkedList.delete(25)
+        expect(linkedList.toString()).toBe('50,75,125')
 
-    //     //Act,Assert
-    //     linkedList.delete(75)
-    //     expect(linkedList.toString()).toBe('50,125')
+        //Act,Assert
+        linkedList.delete(75)
+        expect(linkedList.toString()).toBe('50,125')
 
-    //     //Act,Assert
-    //     expect(linkedList.head?.toString()).toBe('50')
-    //     expect(linkedList.tail?.toString()).toBe('125')
+        //Act,Assert
+        expect(linkedList.head?.toString()).toBe('50')
+        expect(linkedList.tail?.toString()).toBe('125')
 
-    //     //Act,Assert
-    //     linkedList.delete(50)
-    //     expect(linkedList.toString()).toBe('125')
+        //Act,Assert
+        linkedList.delete(50)
+        expect(linkedList.toString()).toBe('125')
 
-    //     //Act,Assert
-    //     expect(linkedList.head?.toString()).toBe('125')
-    //     expect(linkedList.tail?.toString()).toBe('125')
+        //Act,Assert
+        expect(linkedList.head?.toString()).toBe('125')
+        expect(linkedList.tail?.toString()).toBe('125')
 
-    //     //Act,Assert
-    //     linkedList.delete(125)
-    //     expect(linkedList.toString()).toBe('')
-    // })
+        //Act,Assert
+        linkedList.delete(125)
+        expect(linkedList.toString()).toBe('')
+    })
 
     it('should be able to delete linked list tail', () => {
         //Arrange
