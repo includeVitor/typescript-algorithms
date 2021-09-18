@@ -1,2 +1,2 @@
-import { LinkedList } from './LinkedList'
+export { LinkedList } from './LinkedList'
 export { LinkedListNode } from './LinkedListNode'
