@@ -28,13 +28,13 @@ jobs:
         cache: 'npm'
         
     - name: run type-checking
-      run: npm type-check
+      run: yarn type-check
     
     - name: run linting
-      run: npm lint
+      run: yarn lint
     
     - name: run tests
-      run: npm test
+      run: yarn test
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
