@@ -43,7 +43,29 @@ export class DoublyLinkedList<T = never> implements IDoublyLinkedList<T> {
     }
 
     append = (value: T) => {
-        const newNode = new DoublyLinkedListNode(value, this.head)
+        const newNode = new DoublyLinkedListNode(value)
+
+        /**
+         * Create new head and tail if doesn't exists yet
+         */
+        if (!this.head || !this.tail) {
+            this.head = newNode
+            this.tail = newNode
+
+            return this
+        }
+
+        /**
+         * Append the new node at the end of linked list
+         */
+        this.tail.next = newNode
+
+        /**
+         * newNode previous should be link to tail
+         */
+        newNode.previous = this.tail
+
+        this.tail = newNode
 
         return this
     }
