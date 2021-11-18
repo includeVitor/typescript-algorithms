@@ -1,5 +1,10 @@
-import { LinkedListNode } from './LinkedListNode'
-import { FindArguments, ILinkedList, Node, ToStringArguments } from './types'
+import {
+    FindArguments,
+    ILinkedList,
+    Node,
+    ToStringArguments
+} from '@data-structures/linked-list/types'
+import { LinkedListNode } from '@data-structures/linked-list'
 import { Comparator } from '@comparator/Comparator'
 import { ComparatorFunction } from '@comparator/types'
 

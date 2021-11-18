@@ -3,7 +3,7 @@ import {
     ToStringArguments
 } from '@data-structures/doubly-linked-list/types'
 
-export default class DoublyLinkedListNode<T = never> {
+export class DoublyLinkedListNode<T = never> {
     constructor(public value: T, public next: Node<T> = null) {}
 
     toString(callback: ToStringArguments = null): string {

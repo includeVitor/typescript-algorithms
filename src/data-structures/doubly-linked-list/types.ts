@@ -1,4 +1,4 @@
-import DoublyLinkedListNode from './DoublyLinkedListNode'
+import { DoublyLinkedListNode } from './DoublyLinkedListNode'
 
 type Node<T> = DoublyLinkedListNode<T> | null
 

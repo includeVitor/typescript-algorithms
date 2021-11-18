@@ -1,5 +1,4 @@
-import { LinkedList } from './LinkedList'
-import { LinkedListNode } from './LinkedListNode'
+import { LinkedList, LinkedListNode } from '@data-structures/linked-list'
 
 interface ILinkedList<T> {
     prepend(value: T): LinkedList<T>
