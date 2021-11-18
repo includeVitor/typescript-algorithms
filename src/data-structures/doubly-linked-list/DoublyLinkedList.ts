@@ -1,9 +1,12 @@
 import { Comparator } from '@comparator/Comparator'
 import { ComparatorFunction } from '@comparator/types'
 import { DoublyLinkedListNode } from '@data-structures/doubly-linked-list'
-import { Node } from '@data-structures/doubly-linked-list/types'
+import {
+    IDoublyLinkedList,
+    Node
+} from '@data-structures/doubly-linked-list/types'
 
-export class DoublyLinkedList<T = never> {
+export class DoublyLinkedList<T = never> implements IDoublyLinkedList<T> {
     private _compare: Comparator
 
     constructor(
@@ -35,6 +38,12 @@ export class DoublyLinkedList<T = never> {
         if (!this.tail) {
             this.tail = newNode
         }
+
+        return this
+    }
+
+    append = (value: T) => {
+        const newNode = new DoublyLinkedListNode(value, this.head)
 
         return this
     }
